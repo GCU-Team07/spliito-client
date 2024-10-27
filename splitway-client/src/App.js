@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import RecentGroup from './RecentGroup'; 
-import GroupCreation from './GroupCreation';
-import GroupDetails from './GroupDetails';
+// import GroupCreation from './GroupCreatePage';
+// import GroupDetails from './GroupDetails';
 function App() {
   return (
     <Router>
@@ -11,8 +11,8 @@ function App() {
 
         <Route path="/" element={<Home />} />
         <Route path="/recentgroup" element={<RecentGroup />} />
-        <Route path="/groupcreation" element={<GroupCreation />} />
-        <Route path="/group:{groupID}" element={<GroupDetails />} />
+        {/* <Route path="/groupcreation" element={<GroupCreatePage />} /> */}
+        {/* <Route path="/group:{groupId}" element={<GroupDetails />} /> */}
       </Routes>
     </Router>
   );
