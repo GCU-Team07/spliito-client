@@ -1,41 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import './Home.css';
 
-function Home() {
+function Home({ groups }) {
   const navigate = useNavigate();
-  const profileRef = useRef(null);
 
-  // 초기 그룹 데이터 설정 (더미 데이터)
-  const [groups, setGroups] = useState([
-    { groupId: 1, location: '부산', date: '2024/10/20' },
-    { groupId: 2, location: '대전', date: '2024/10/21' },
-    { groupId: 3, location: '서울', date: '2024/10/22' }
-  ]);
-
-  // 컴포넌트가 마운트될 때 최근 그룹 목록을 가져오기 위한 API 호출
-  useEffect(() => {
-    const fetchGroups = async () => {
-      try {
-        const response = await axios.get('/api/group/all');
-        setGroups(response.data || []); // API에서 데이터를 가져올 수 있으면 사용
-      } catch (error) {
-        console.error("최근 그룹 데이터를 가져오는 중 오류 발생:", error);
-      }
-    };
-
-    fetchGroups();
-  }, []);
-
-  // 화살표 버튼 클릭 시 최근 그룹 페이지로 이동
+  // 최근 그룹 페이지로 이동
   const handleArrowClick = () => {
-    navigate('/recentgroup'); // 최근 그룹 페이지로 이동
+    navigate('/recentgroup');
   };
 
-  // 시작하기 버튼 클릭 시 그룹 생성 페이지로 이동
+  // 그룹 생성 페이지로 이동
   const handleStartClick = () => {
-    navigate('/groupCreatePage'); // 그룹 생성 페이지로 이동
+    navigate('/groupCreatePage');
   };
 
   // 특정 그룹의 세부 페이지로 이동
@@ -48,8 +25,8 @@ function Home() {
       <h1>Splitway</h1>
       <p>비용을 간단하게 나누는 스마트한 방법, <br />Splitway로 빠르게 정산하세요.</p>
 
-      {/* 프로필 이미지 표시 영역 */}
-      <div className="profile-circle" ref={profileRef}>
+      {/* 프로필 이미지 */}
+      <div className="profile-circle">
         <img src={`${process.env.PUBLIC_URL}/splitway.png`} alt="프로필 이미지" />
       </div>
 
@@ -67,8 +44,8 @@ function Home() {
             </svg>
           </button>
         </div>
-        
-        {/* 동적으로 최근 그룹 목록 표시 */}
+
+        {/* 그룹 목록 표시 */}
         <div className="recent-groups-list">
           {groups.length > 0 ? (
             groups.map((group) => (
