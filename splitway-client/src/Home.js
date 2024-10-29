@@ -36,7 +36,7 @@ function Home({ groups }) {
       {/* 최근 그룹 섹션 */}
       <div className="recent-groups-section">
         <div className="recent-groups-header">
-          <h2>최근 그룹</h2>
+          <h2>Recent Group</h2>
           <button className="arrow-button" onClick={handleArrowClick}>
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="19" viewBox="0 0 10 19" fill="none">
               <path d="M9.57812 9.84131L1.76482 17.6546C1.43996 17.9795 0.913258 17.9795 0.588397 17.6546C0.263537 17.3298 0.263537 16.803 0.588397 16.4782L8.4017 8.66488L9.57812 9.84131Z" fill="black"/>

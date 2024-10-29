@@ -1,27 +1,28 @@
-/* 전체 컨테이너 설정 */
 .home-container {
   padding: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh; 
+  background-color: #f4f7fa; 
+  justify-content: center; 
 }
 
-/* 제목 스타일 */
 h1 {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
-  margin-bottom: 10px;
+  color: #2c3e50;
+  margin-bottom: 15px;
 }
 
-/* 설명 텍스트 스타일 */
 p {
-  font-size: 14px;
+  font-size: 15px;
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  line-height: 1.5;
 }
 
-/* 프로필 원 설정 */
 .profile-circle {
   width: 100px;
   height: 100px;
@@ -29,6 +30,7 @@ p {
   overflow: hidden; 
   background-color: #e0e0e0;
   margin: 20px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .profile-circle img {
@@ -37,23 +39,29 @@ p {
   object-fit: cover; 
 }
 
-
-/* Start button styling */
 .start-button {
   width: 100%;
   max-width: 350px;
   padding: 15px 30px;
-  background-color: #757575;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
   color: #fff;
   border: none;
   border-radius: 25px;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   margin-bottom: 30px;
   height: 70px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* 최근 그룹 섹션 스타일 */
+.start-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+}
+
 .recent-groups-section {
   margin-top: 40px;
   text-align: left;
@@ -61,34 +69,58 @@ p {
   max-width: 350px;
 }
 
-/* 최근 그룹 항목 스타일 */
 .recent-group-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   border: 1px solid #e0e0e0;
-  padding: 10px;
+  padding: 15px 20px;
   margin: 10px 0;
   border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 
-/* 최근 그룹 헤더 스타일 */
+.recent-group-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .recent-groups-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%; 
+  max-width: 350px;
+  margin-bottom: 10px;
 }
 
-/* 화살표 버튼 스타일 */
 .arrow-button {
   background: none;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
+  padding: 5px;
+  transition: color 0.2s, transform 0.2s;
 }
 
-/* 버튼 클릭 시 색상 변경 효과 추가 */
 .arrow-button:hover {
-  opacity: 0.8;
+  color: #3498db;
+  transform: scale(1.1);
+}
+
+.arrow-button svg {
+  fill: currentColor;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.arrow-button,
+.start-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

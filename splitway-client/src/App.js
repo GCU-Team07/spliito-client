@@ -10,7 +10,7 @@ function App() {
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
-    // 초기 데이터를 위해 MockAdapter 설정 (members 배열 포함)
+    // 초기 데이터를 위해 MockAdapter 설정 
     const mock = new MockAdapter(axios);
     mock.onGet('/api/group/all').reply(200, [
       { groupId: 1, location: '부산', date: '2024/10/20', members: ['고구마', '감자', '옥수수', '양파'] },
