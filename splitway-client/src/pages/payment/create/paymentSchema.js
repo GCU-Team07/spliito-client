@@ -9,5 +9,3 @@ export const paymentSchema = z.object({
     itemPrice: z.number(),
     payMemberName: z.array(z.string()).min(1),
 });
-
-export const defaultPromptSchema = {};

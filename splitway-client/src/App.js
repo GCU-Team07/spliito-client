@@ -32,7 +32,7 @@ const router = createBrowserRouter([
                 element: <GroupCreatePage />,
             },
             {
-                path: "/groups/:id/result",
+                path: "/groups/result/:id",
                 element: <GroupResultPage />,
             },
             {

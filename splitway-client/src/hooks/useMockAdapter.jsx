@@ -95,5 +95,17 @@ export default function useMockAdapter() {
                 },
             ];
         });
+
+        /**
+         * 그룹 생성하기
+         */
+        mock.onPost(/\/api\/group+/).reply(function (config) {
+            return [
+                200,
+                {
+                    groupUrl: "dsjflsjfsf",
+                },
+            ];
+        });
     }, []);
 }
