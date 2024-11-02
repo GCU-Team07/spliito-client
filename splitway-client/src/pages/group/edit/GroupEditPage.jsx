@@ -40,9 +40,7 @@ function GroupEditPage() {
                         console.log("Group Modified:", response.data);
 
                         messageApi.success("그룹 정보가 수정되었습니다.");
-                        navigate(`/groups/result/${response.data.groupUrl}`, {
-                            replace: true,
-                        });
+                        navigate(-1);
                     })
                     .catch((error) => console.error(error));
             },
