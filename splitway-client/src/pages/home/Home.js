@@ -24,7 +24,7 @@ function Home({ groups }) {
     };
 
     return (
-        <div className="home-container">
+        <div className="container flex-col flex-center">
             <Flex vertical gap={30}>
                 <Title level={2}>Splitway</Title>
                 <Text style={{ color: "#666" }}>

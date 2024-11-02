@@ -1,15 +1,3 @@
-.home-container {
-    min-height: 100vh;
-
-    padding: 20px 40px;
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 .profile-circle {
     width: 100px;
     height: 100px;
@@ -29,6 +17,8 @@
 .recent-groups-section {
     margin-top: 40px;
     width: 350px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(16px);
 }
 
 .recent-group-item {
@@ -43,7 +33,7 @@
 }
 
 .ic_button {
-    width: 8px;
+    width: 10px;
     transition: transform 0.2s;
     cursor: pointer;
 }

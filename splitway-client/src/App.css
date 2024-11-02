@@ -7,7 +7,14 @@
 .App {
     max-width: 600px;
     margin: auto;
-    background-color: #fff;
+    background: linear-gradient(
+        0deg,
+        #ded2ff -46.93%,
+        #d2daff -31.6%,
+        #dee4ff -4.86%,
+        #fff 117.99%
+    );
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -33,4 +40,21 @@ input {
     margin: 10px 0;
     width: 100%;
     box-sizing: border-box;
+}
+
+.container {
+    min-height: 100vh;
+
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    align-items: center;
+    justify-content: center;
 }
