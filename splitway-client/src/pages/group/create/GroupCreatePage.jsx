@@ -31,7 +31,9 @@ function GroupCreatePage() {
                         console.log("Group Created:", response.data);
 
                         messageApi.success("그룹이 생성되었습니다.");
-                        navigate(`/groups/result/${response.data.groupUrl}`);
+                        navigate(`/groups/result/${response.data.groupUrl}`, {
+                            replace: true,
+                        });
                     })
                     .catch((error) => console.error(error));
             },

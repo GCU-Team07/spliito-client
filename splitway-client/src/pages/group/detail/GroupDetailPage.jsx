@@ -8,6 +8,8 @@ const { Title, Text } = Typography;
 function GroupDetailPage() {
     const navigate = useNavigate();
     const { id } = useParams();
+
+    // [TODO] 그룹 구성원 불러오기 API 수정 요청해서 id로 조회 필요
     const group = useLocation()?.state?.group;
 
     const [payments, setPayments] = useState([]);
