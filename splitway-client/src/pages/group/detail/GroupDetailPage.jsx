@@ -33,6 +33,12 @@ function GroupDetailPage() {
             });
     }, []);
 
+    function handleAddPayments() {
+        navigate(`/groups/${id}/payments/new`, {
+            state: { members: group.members },
+        });
+    }
+
     if (!group) return <div>Loading...</div>;
 
     return (
@@ -74,7 +80,7 @@ function GroupDetailPage() {
                     <Button
                         className="m-0"
                         type="primary"
-                        onClick={() => navigate(`/groups/${id}/payments/new`)}
+                        onClick={handleAddPayments}
                     >
                         결제 추가
                     </Button>

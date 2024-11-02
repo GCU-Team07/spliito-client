@@ -81,5 +81,19 @@ export default function useMockAdapter() {
                 ],
             ];
         });
+
+        /**
+         * 결제 추가하기
+         */
+        mock.onPost(/\/api\/payment\/\d+/).reply(function (config) {
+            return [
+                200,
+                {
+                    paymentId: 1,
+                    eachPrice: 68000,
+                    payUsers: ["고구마", "호박"],
+                },
+            ];
+        });
     }, []);
 }
