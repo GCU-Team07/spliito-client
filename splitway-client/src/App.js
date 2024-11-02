@@ -11,6 +11,7 @@ import Home from "./Home";
 import RecentGroup from "./RecentGroup";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
+import Styles from "./styles";
 
 function App() {
     const [groups, setGroups] = useState([]);
@@ -66,33 +67,41 @@ function App() {
     };
 
     return (
-        <Router>
-            <div className="App">
-                <Routes>
-                    <Route path="/" element={<Home groups={groups} />} />
-                    <Route
-                        path="/recentgroup"
-                        element={
-                            <RecentGroup
-                                groups={groups}
-                                onDeleteGroup={deleteGroup}
-                            />
-                        }
-                    />
-                    {/* <Route path="/" element={<GroupListPage />} /> */}
-                    <Route path="/groups/new" element={<GroupCreatePage />} />
-                    <Route path="/groups/:id" element={<GroupDetailPage />} />
-                    <Route
-                        path="/groups/:id/payments/new"
-                        element={<PaymentAddPage />}
-                    />
-                    <Route
-                        path="/groups/:id/payments"
-                        element={<PaymentDetailPage />}
-                    />
-                </Routes>
-            </div>
-        </Router>
+        <Styles>
+            <Router>
+                <div className="App">
+                    <Routes>
+                        <Route path="/" element={<Home groups={groups} />} />
+                        <Route
+                            path="/recentgroup"
+                            element={
+                                <RecentGroup
+                                    groups={groups}
+                                    onDeleteGroup={deleteGroup}
+                                />
+                            }
+                        />
+                        {/* <Route path="/" element={<GroupListPage />} /> */}
+                        <Route
+                            path="/groups/new"
+                            element={<GroupCreatePage />}
+                        />
+                        <Route
+                            path="/groups/:id"
+                            element={<GroupDetailPage />}
+                        />
+                        <Route
+                            path="/groups/:id/payments/new"
+                            element={<PaymentAddPage />}
+                        />
+                        <Route
+                            path="/groups/:id/payments"
+                            element={<PaymentDetailPage />}
+                        />
+                    </Routes>
+                </div>
+            </Router>
+        </Styles>
     );
 }
 
