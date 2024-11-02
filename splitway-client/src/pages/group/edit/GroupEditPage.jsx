@@ -5,9 +5,9 @@ import { Button, Flex, Input, Modal, Typography } from "antd";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMessageApi } from "../../../layouts/Layout";
-import { groupSchema } from "../create/groupSchema";
 import TagInput from "../create/TagInput";
 import { ExclamationCircleFilled } from "@ant-design/icons";
+import { groupSchema } from "../../../schema/groupSchema";
 
 const { Title } = Typography;
 const { confirm } = Modal;

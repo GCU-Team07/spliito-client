@@ -33,6 +33,8 @@ function GroupDetailPage() {
             .catch((error) => {
                 console.error("정산 데이터 로딩 오류:", error);
             });
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     function handleAddPayments() {

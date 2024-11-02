@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { Button, Flex, Input, Typography } from "antd";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { groupSchema } from "./groupSchema";
 import TagInput from "./TagInput";
 import { useMessageApi } from "../../../layouts/Layout";
+import { groupSchema } from "../../../schema/groupSchema";
 
 const { Title } = Typography;
 function GroupCreatePage() {

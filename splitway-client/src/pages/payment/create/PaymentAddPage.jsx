@@ -3,9 +3,9 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
-import { paymentSchema } from "./paymentSchema";
 import { Button, Flex, Input, InputNumber, Select, Typography } from "antd";
 import { useMessageApi } from "../../../layouts/Layout";
+import { paymentSchema } from "../../../schema/paymentSchema";
 
 const { Title } = Typography;
 function PaymentAddPage() {
