@@ -1,9 +1,13 @@
 /* 예시 스타일 */
-.App {
+:root {
     font-family: Pretendard, Arial, sans-serif;
+    background-color: #efefef;
+}
+
+.App {
     max-width: 600px;
     margin: auto;
-    padding: 20px;
+    background-color: #fff;
 }
 
 h1 {

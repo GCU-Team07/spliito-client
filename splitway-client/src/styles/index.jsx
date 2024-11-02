@@ -10,8 +10,8 @@ const Styles = ({ children }) => {
                 },
                 components: {
                     Typography: {
-                        titleMarginBottom: "10px",
-                        titleMarginTop: 0,
+                        titleMarginBottom: "0",
+                        titleMarginTop: "0",
                     },
                     Select: {
                         optionSelectedColor: "#7580EA",
