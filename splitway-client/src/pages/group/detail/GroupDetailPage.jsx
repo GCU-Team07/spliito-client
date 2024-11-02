@@ -10,41 +10,28 @@ function GroupDetailPage() {
     const { id } = useParams();
     const group = useLocation()?.state?.group;
 
-    const payments = [
-        {
-            itemName: "KTX",
-            itemPrice: 230000,
-            paidMemberName: "고구마",
-            payMemberName: ["고구마", "감자", "호박"],
-        },
-        {
-            itemName: "점심 - 밀면",
-            itemPrice: 56000,
-            paidMemberName: "고구마",
-            payMemberName: ["고구마", "감자", "호박"],
-        },
-        {
-            itemName: "카페",
-            itemPrice: 230000,
-            paidMemberName: "감자",
-            payMemberName: ["고구마", "감자", "호박"],
-        },
-    ];
+    const [payments, setPayments] = useState([]);
+    const [settelments, setSettlements] = useState([]);
 
-    const settelments = [
-        {
-            payRelationShip: "고구마 -> 호박",
-            paymentPrice: 68000,
-        },
-        {
-            payRelationShip: "호박 -> 고구마",
-            paymentPrice: 40000,
-        },
-        {
-            payRelationShip: "호박 -> 감자",
-            paymentPrice: 32000,
-        },
-    ];
+    useEffect(() => {
+        axios
+            .get(`/api/payment/history/${id}`)
+            .then((response) => {
+                setPayments(response.data);
+            })
+            .catch((error) => {
+                console.error("정산 데이터 로딩 오류:", error);
+            });
+
+        axios
+            .get(`/api/settlement/history/${id}`)
+            .then((response) => {
+                setSettlements(response.data);
+            })
+            .catch((error) => {
+                console.error("정산 데이터 로딩 오류:", error);
+            });
+    }, []);
 
     if (!group) return <div>Loading...</div>;
 
