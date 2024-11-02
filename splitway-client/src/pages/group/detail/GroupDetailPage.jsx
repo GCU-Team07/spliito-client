@@ -1,23 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from "react";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import { Button, Card, Flex, Row, Typography } from "antd";
+import { Button, Card, Flex, Typography } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 
 const { Title, Text } = Typography;
 function GroupDetailPage() {
     const navigate = useNavigate();
     const { id } = useParams();
-    // const [group, setGroup] = useState(null);
-    const [members, setMembers] = useState([]);
-
-    const group = {
-        groupId: 1,
-        groupName: "신나는 부산 여행",
-        location: "부산",
-        date: "2024/10/20",
-        members: ["고구마", "감자", "옥수수", "양파"],
-    };
+    const group = useLocation()?.state?.group;
 
     const payments = [
         {
@@ -55,16 +46,7 @@ function GroupDetailPage() {
         },
     ];
 
-    // useEffect(() => {
-    //     // 그룹 상세 정보 불러오기
-    //     axios.get(`/group/${id}/members`)
-    //         .then(response => {
-    //             setMembers(response.data);
-    //         })
-    //         .catch(error => console.error(error));
-    // }, [id]);
-
-    // if (!group) return <div>Loading...</div>;
+    if (!group) return <div>Loading...</div>;
 
     return (
         <div className="group-detail-container">
@@ -86,7 +68,9 @@ function GroupDetailPage() {
 
                 <Flex vertical gap={30} align="center">
                     <Title level={3}>{group.groupName}</Title>
-                    <Text className=" text-neutral-500">{group.date}</Text>
+                    <Text className=" text-neutral-500">
+                        {group.createdDate}
+                    </Text>
                     <Text className="text-neutral-500">
                         <b>멤버</b> {group.members.join(", ")}
                     </Text>

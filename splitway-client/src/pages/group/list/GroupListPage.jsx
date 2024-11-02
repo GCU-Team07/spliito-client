@@ -1,14 +1,28 @@
 // RecentGroup.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./RecentGroup.css";
 import { Card, Flex, Typography } from "antd";
 import { ClockCircleOutlined, UserOutlined } from "@ant-design/icons";
+import axios from "axios";
 
 const { Title, Text } = Typography;
 
-function RecentGroup({ groups, onDeleteGroup }) {
+function GroupListPage() {
     const navigate = useNavigate();
+    const [groups, setGroups] = useState([]);
+
+    useEffect(() => {
+        // 초기 그룹 데이터 가져오기
+        axios
+            .get("/api/group/all")
+            .then((response) => {
+                setGroups(response.data);
+            })
+            .catch((error) => {
+                console.error("그룹 데이터 로딩 오류:", error);
+            });
+    }, []);
 
     // 그룹 멤버 표시 형식, members가 없을 경우 빈 배열로 설정
     const formatMembers = (members = []) => {
@@ -22,8 +36,12 @@ function RecentGroup({ groups, onDeleteGroup }) {
     };
 
     // 그룹 항목 클릭 시 상세 페이지로 이동
-    const handleGroupClick = (groupId) => {
-        navigate(`/groups/${groupId}`);
+    const handleGroupClick = (group) => {
+        navigate(`/groups/${group.groupId}`, {
+            state: {
+                group,
+            },
+        });
     };
 
     return (
@@ -52,19 +70,19 @@ function RecentGroup({ groups, onDeleteGroup }) {
                         bordered={false}
                         className="w-[80%]"
                         hoverable={true}
-                        onClick={() => handleGroupClick(group.groupId)}
+                        onClick={() => handleGroupClick(group)}
                     >
                         {/* 그룹 위치 */}
-                        <Flex justify="space-between">
+                        <Flex justify="space-between" className="mb-[10px]">
                             <Title level={5} className="mt-0">
-                                {group.location}
+                                {group.groupName}
                             </Title>
                         </Flex>
 
                         {/* 날찌, 멤버 정보 */}
                         <Flex gap={5}>
                             <ClockCircleOutlined />
-                            <Text>{group.date}</Text>
+                            <Text>{group.createdDate}</Text>
                         </Flex>
 
                         <Flex gap={5}>
@@ -78,4 +96,4 @@ function RecentGroup({ groups, onDeleteGroup }) {
     );
 }
 
-export default RecentGroup;
+export default GroupListPage;

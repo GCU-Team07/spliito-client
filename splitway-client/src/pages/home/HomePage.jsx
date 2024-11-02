@@ -1,26 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import { Button, Flex, List, Typography } from "antd";
+import axios from "axios";
 
 const { Title, Text } = Typography;
 
-function Home({ groups }) {
+function HomePage() {
     const navigate = useNavigate();
+    const [groups, setGroups] = useState([]);
+
+    useEffect(() => {
+        // 초기 그룹 데이터 가져오기
+        axios
+            .get("/api/group/all")
+            .then((response) => {
+                setGroups(response.data);
+            })
+            .catch((error) => {
+                console.error("그룹 데이터 로딩 오류:", error);
+            });
+    }, []);
 
     // 최근 그룹 페이지로 이동
     const handleArrowClick = () => {
-        navigate("/recentgroup");
+        navigate("/groups");
     };
 
     // 그룹 생성 페이지로 이동
     const handleStartClick = () => {
-        navigate("/groupCreatePage");
+        navigate("/groups/new");
     };
 
     // 특정 그룹의 세부 페이지로 이동
-    const handleGroupClick = (groupId) => {
-        navigate(`/group/${groupId}`);
+    const handleGroupClick = (group) => {
+        navigate(`/groups/${group.groupId}`, {
+            state: {
+                group,
+            },
+        });
     };
 
     return (
@@ -72,10 +90,10 @@ function Home({ groups }) {
                 }
                 bordered
                 dataSource={groups}
-                renderItem={(item) => (
+                renderItem={(group) => (
                     <ListItem
-                        item={item}
-                        onClick={() => handleGroupClick(item.groupId)}
+                        item={group}
+                        onClick={() => handleGroupClick(group)}
                     />
                 )}
             />
@@ -90,10 +108,10 @@ const ListItem = ({ item, onClick }) => {
             onClick={onClick}
             className="recent-group-item"
         >
-            <Text>{item.location}</Text>
-            <Text>{item.date}</Text>
+            <Text>{item.groupName}</Text>
+            <Text>{item.createdDate}</Text>
         </List.Item>
     );
 };
 
-export default Home;
+export default HomePage;
