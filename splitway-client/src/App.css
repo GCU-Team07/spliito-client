@@ -1,32 +1,69 @@
 /* 예시 스타일 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-family: Pretendard, Arial, sans-serif;
+    background-color: #efefef;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 .App {
-  font-family: Arial, sans-serif;
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
+    max-width: 600px;
+    box-sizing: border-box;
+    margin: auto;
+    background: linear-gradient(
+        0deg,
+        #ded2ff -46.93%,
+        #d2daff -31.6%,
+        #dee4ff -4.86%,
+        #fff 117.99%
+    );
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  color: #333;
+    color: #333;
 }
 
 button {
-  padding: 10px 15px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 button:hover {
-  background-color: #45a049;
+    background-color: #45a049;
 }
 
 input {
-  display: block;
-  padding: 10px;
-  margin: 10px 0;
-  width: 100%;
-  box-sizing: border-box;
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    min-height: 100vh;
+
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    align-items: center;
+    justify-content: center;
 }
