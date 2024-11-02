@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { Button, Card, Flex, Typography } from "antd";
@@ -74,7 +74,7 @@ function GroupDetailPage() {
                     <Button
                         className="m-0"
                         type="primary"
-                        onClick={() => navigate(`/payment/${id}/new`)}
+                        onClick={() => navigate(`/groups/${id}/payments/new`)}
                     >
                         결제 추가
                     </Button>
