@@ -50,14 +50,14 @@ function GroupDetailPage() {
     if (!group) return <div>Loading...</div>;
 
     return (
-        <div className="group-detail-container">
+        <div className="w-full mh-screen flex-col">
             <Flex
                 vertical
-                className="group-detail-header"
+                className="w-full bg-white backdrop-blur-md pt-[20px] px-[40px] pb-[50px]"
                 align="center"
                 gap={30}
             >
-                <Flex className="w-full" justify="space-between">
+                <Flex className="w-full h-full " justify="space-between">
                     <img
                         src="/images/ic_arrow_left.svg"
                         alt="ic_back"

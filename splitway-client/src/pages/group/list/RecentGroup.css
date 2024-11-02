@@ -1,37 +1,3 @@
-/* 전체 컨테이너 설정 */
-.custom-recent-groups-section {
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 8px;
-
-    background-color: rgb(240, 242, 245);
-}
-
-.custom-recent-groups-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 100%;
-    position: sticky;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(16px);
-
-    padding: 20px 40px;
-}
-
-.custom-recent-groups-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-}
-
 .custom-arrow-button,
 .edit-button,
 .delete-button {
@@ -56,19 +22,4 @@
     stroke: none;
     width: 1.2em;
     height: 1.2em;
-}
-
-.group-detail-container {
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.group-detail-header {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(16px);
-    padding: 20px 40px 50px;
 }
