@@ -79,7 +79,7 @@ function App() {
                             />
                         }
                     />
-                    <Route path="/" element={<GroupListPage />} />
+                    {/* <Route path="/" element={<GroupListPage />} /> */}
                     <Route path="/groups/new" element={<GroupCreatePage />} />
                     <Route path="/groups/:id" element={<GroupDetailPage />} />
                     <Route
