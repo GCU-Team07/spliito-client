@@ -23,7 +23,7 @@ function RecentGroup({ groups, onDeleteGroup }) {
 
     // 그룹 항목 클릭 시 상세 페이지로 이동
     const handleGroupClick = (groupId) => {
-        navigate(`/group/${groupId}`);
+        navigate(`/groups/${groupId}`);
     };
 
     return (
@@ -34,7 +34,7 @@ function RecentGroup({ groups, onDeleteGroup }) {
                     className="ic_button"
                     src="/images/ic_arrow_left.svg"
                     alt="ic_left"
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate(-1)}
                 />
 
                 {/* Recent Group 제목 */}
@@ -45,18 +45,18 @@ function RecentGroup({ groups, onDeleteGroup }) {
                 <span></span>
             </div>
 
-            <Flex vertical gap={10} style={{ width: "100%" }} align="center">
+            <Flex vertical gap={10} className="w-full mt-[30px]" align="center">
                 {groups.map((group, index) => (
                     <Card
                         key={index}
                         bordered={false}
-                        style={{ width: "80%" }}
+                        className="w-[80%]"
                         hoverable={true}
                         onClick={() => handleGroupClick(group.groupId)}
                     >
                         {/* 그룹 위치 */}
                         <Flex justify="space-between">
-                            <Title level={5} style={{ margin: "0 0 10px" }}>
+                            <Title level={5} className="mt-0">
                                 {group.location}
                             </Title>
                         </Flex>
