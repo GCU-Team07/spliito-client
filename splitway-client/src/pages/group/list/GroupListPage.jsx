@@ -1,11 +1,9 @@
 // RecentGroup.js
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./RecentGroup.css";
 import { Card, Flex, Typography } from "antd";
 import { ClockCircleOutlined, UserOutlined } from "@ant-design/icons";
 import axios from "axios";
-import { Header } from "antd/es/layout/layout";
 
 const { Title, Text } = Typography;
 
