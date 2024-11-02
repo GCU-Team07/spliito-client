@@ -12,6 +12,7 @@ import useMockAdapter from "./hooks/useMockAdapter";
 import GroupResultPage from "./pages/group/result/GroupResultPage";
 import PaymentDetailPage from "./pages/payment/detail/PaymentDetailPage";
 import Layout from "./layouts/Layout";
+import GroupEditPage from "./pages/group/edit/GroupEditPage";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: "/groups/:id",
                 element: <GroupDetailPage />,
+            },
+            {
+                path: "/groups/edit/:id",
+                element: <GroupEditPage />,
             },
             // 결제
             {

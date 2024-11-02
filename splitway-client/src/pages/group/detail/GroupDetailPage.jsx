@@ -41,6 +41,10 @@ function GroupDetailPage() {
         });
     }
 
+    function handleModify() {
+        navigate(`/groups/edit/${id}`, { state: { group } });
+    }
+
     if (!group) return <div>Loading...</div>;
 
     return (
@@ -58,7 +62,7 @@ function GroupDetailPage() {
                         className="ic_button"
                         onClick={() => navigate(-1)}
                     />
-                    <EditOutlined />
+                    <EditOutlined onClick={handleModify} />
                 </Flex>
 
                 <Flex vertical gap={30} align="center">
